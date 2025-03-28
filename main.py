@@ -23,7 +23,7 @@ def Update(id, description):
     for d in data:
         if d["id"] == int(id):
             d["description"] = description
-            with open('article.json', 'w') as file:
+            with open('task.json', 'w') as file:
                 json.dump(data, file, indent=4)
                 pprint(f"[green]Task updated successfully[/green] (ID : {d['id']})")
 
@@ -32,7 +32,7 @@ def Delete(id):
     for d in data:
         if d["id"] == int(id):
             data.remove(d)
-            with open('article.json', 'w') as file:
+            with open('task.json', 'w') as file:
                 json.dump(data, file, indent=4)
                 pprint('[green]Task deleted successfully[/green]')
 
@@ -41,14 +41,14 @@ def MarkDone(id):
     for d in data:
         if d["id"] == int(id):
             d["status"] = "done"
-            with open('article.json', 'w') as file:
+            with open('task.json', 'w') as file:
                 json.dump(data, file, indent=4)
 
 def MarkInProgress(id):
     for d in data:
         if d["id"] == int(id):
             d["status"] = "in-progress"
-            with open('article.json', 'w') as file:
+            with open('task.json', 'w') as file:
                 json.dump(data, file, indent=4)
 
 def ListAll():
@@ -116,7 +116,7 @@ class App(Cmd):
         'Adding a task to list, task-cli add <description>'
         global data
         data.append(Task(description=args).__dict__)
-        with open('article.json', 'w') as file:
+        with open('task.json', 'w') as file:
             json.dump(data, file, indent=4)
 
     def do_quit(self, args):
