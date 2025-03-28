@@ -25,7 +25,7 @@
     venv\Scripts\activate
 
 ```
-- Install Module
+- Install Requirements
 ```
 
     pip install -r requirements.txt
